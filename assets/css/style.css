@@ -1,0 +1,256 @@
+/* -----------------------------------------------------------------------------------
+
+    Name: Spotify UI Clone | Music Streaming Interface
+    Description: A Spotify-inspired music streaming interface built with HTML, CSS and JS. This project recreates the modern Spotify UI design for learning and front-end development practice.
+    Author: Gutheras
+    Author URL: https://gutheras.pages.dev/
+
+-----------------------------------------------------------------------------------
+
+    1.Base css
+        1.1 Root css
+        1.2 Base style
+        1.3 Utilities
+        1.4 Text truncation
+
+    2.Custom scrollbar
+
+    3. Search Input 
+
+    4. Play buttons
+
+    5. Grid layout
+
+    6. Bottom banner
+
+ */
+:root {
+  --spotify-green: #1ed760;
+  --spotify-green-hover: #3be477;
+  --spotify-black: #000000;
+  --spotify-darker: #121212;
+  --spotify-dark: #242424;
+  --spotify-light: #b3b3b3;
+  --spotify-white: #ffffff;
+  --spotify-banner-bg: linear-gradient(90deg, #af2896, #509bf5);
+}
+
+/* Base styles */
+body {
+  background-color: var(--spotify-black) !important;
+  font-family:
+    Circular,
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--spotify-white);
+}
+
+/* Utilities */
+.bg-black {
+  background-color: var(--spotify-black) !important;
+}
+.bg-darker {
+  background-color: var(--spotify-darker) !important;
+}
+.bg-dark {
+  background-color: var(--spotify-dark) !important;
+}
+.text-white-50 {
+  color: var(--spotify-light) !important;
+}
+
+.hover-opacity-100:hover {
+  opacity: 1 !important;
+}
+.hover-text-white:hover {
+  color: var(--spotify-white) !important;
+}
+
+.hover-bg-dark:hover {
+  background-color: #282828 !important;
+}
+.hover-bg-light-dark:hover {
+  background-color: #333333 !important;
+}
+.hover-bg-darker:hover {
+  background-color: #2a2a2a !important;
+}
+
+.hover-border-white:hover {
+  border-color: var(--spotify-white) !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.transition-all {
+  transition: all 0.25s ease;
+}
+.transition-colors {
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Text truncation */
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+/* Custom Scrollbars */
+.library,
+.main-content {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+.library:hover,
+.main-content:hover {
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+.library::-webkit-scrollbar,
+.main-content::-webkit-scrollbar {
+  width: 12px;
+}
+.library::-webkit-scrollbar-track,
+.main-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.library::-webkit-scrollbar-thumb,
+.main-content::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 10px;
+  border: 3px solid var(--spotify-darker);
+}
+.library:hover::-webkit-scrollbar-thumb,
+.main-content:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.library::-webkit-scrollbar-thumb:hover,
+.main-content::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Search Input */
+.search-input:hover {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+}
+.search-input:focus {
+  background-color: #242424 !important;
+  color: var(--spotify-white) !important;
+  box-shadow: 0 0 0 2px var(--spotify-white) !important;
+}
+.group:focus-within .group-focus-text-white {
+  color: var(--spotify-white) !important;
+}
+
+.hover-underline:hover {
+  text-decoration: underline;
+}
+
+/* Background grdnt 4 main cntt */
+.bg-gradient-custom {
+  background: linear-gradient(
+    180deg,
+    rgba(33, 33, 33, 1) 0%,
+    rgba(18, 18, 18, 1) 100%
+  );
+  opacity: 0.5;
+}
+
+/* Group hover effects */
+.group:hover .group-hover-opacity-100 {
+  opacity: 1 !important;
+}
+
+/* Play buttons */
+.play-btn-card {
+  background-color: var(--spotify-green) !important;
+  border: none;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+}
+.card-wrapper:hover .play-btn-card {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+.play-btn-card:hover {
+  background-color: var(--spotify-green-hover) !important;
+  transform: scale(1.05) translateY(0) !important;
+}
+.hover-scale-btn:hover {
+  transform: scale(1.05) translateY(0) !important;
+}
+
+/* Scale animations for interactive buttons */
+.hover-scale {
+  transition: transform 0.1s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.04);
+}
+
+/* Aspect ratio Square 4 imgs */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* Grid layout 4 Cards */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+@media (min-width: 1500px) {
+  .grid-layout {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (max-width: 1499px) and (min-width: 1300px) {
+  .grid-layout {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media (max-width: 1299px) and (min-width: 1100px) {
+  .grid-layout {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 1099px) and (min-width: 768px) {
+  .grid-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sidebar {
+    display: none !important;
+  }
+}
+
+/* Bottom banner */
+.preview-banner {
+  background-image: var(--spotify-banner-bg);
+  border-radius: 0;
+}

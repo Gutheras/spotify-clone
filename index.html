@@ -1,0 +1,1672 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify UI Clone | Music Streaming Interface</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gutheras" />
+    <meta
+      name="description"
+      content="A Spotify-inspired music streaming interface built with HTML, CSS and JS. This project recreates the modern Spotify UI design for learning and front-end development practice."
+    />
+    <meta
+      name="keywords"
+      content="Spotify UI Clone, Music Streaming UI, Spotify Frontend Clone, HTML CSS JavaScript Project, Music App Interface, Frontend Development Project, Spotify Design Clone"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open graph (for social sharing) -->
+    <meta property="og:title" content="Spotify UI Clone" />
+    <meta
+      property="og:description"
+      content="A Spotify-inspired music streaming UI built using HTML, CSS and JS for front-end practice."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:author" content="Gutheras" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="text-white bg-black">
+    <div class="d-flex flex-column vh-100 p-2 gap-2">
+      <!-- Top nav-->
+      <header
+        class="top-nav d-flex justify-content-between align-items-center px-4 mt-1"
+        style="height: 48px; min-height: 48px"
+      >
+        <div class="d-flex align-items-center gap-3">
+          <i class="bi bi-spotify text-white" style="font-size: 2rem"></i>
+        </div>
+
+        <div
+          class="d-flex align-items-center gap-2 flex-grow-1 justify-content-center"
+          style="max-width: 500px"
+        >
+          <button
+            class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center hover-scale border-0 shadow-none icon-container"
+            style="
+              width: 48px;
+              height: 48px;
+              background-color: var(--spotify-dark) !important;
+            "
+          >
+            <i class="bi bi-house-door-fill fs-4 text-white"></i>
+          </button>
+          <div class="position-relative w-100 group">
+            <i
+              class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms- text-white-50 fs-5 z-2 group-focus-text-white transition-colors"
+            ></i>
+            <input
+              type="text"
+              class="form-control rounded-pill border-0 text-white shadow-none ps-5 pe-5 py-3 hover-bg-darker search-input transition-colors"
+              placeholder="What do you want to play?"
+              style="
+                background-color: var(--spotify-dark);
+                font-weight: 500;
+                font-size: 1rem;
+                border: 1px solid transparent !important;
+              "
+            />
+            <div
+              class="position-absolute top-50 end-0 translate-middle-y me-3 vr bg-secondary opacity-50"
+              style="height: 24px; width: 1px"
+            ></div>
+            <i
+              class="bi bi-safe position-absolute top-50 end-0 translate-middle-y me-1 text-white-50 fs-5 hover-text-white cursor-pointer transition-colors px-2"
+            ></i>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3 fw-bold">
+          <a
+            href="#"
+            class="text-white-50 text-decoration-none hover-text-white hover-scale transition-colors fs-6 d-none d-lg-block"
+            >Premium</a
+          >
+          <a
+            href="#"
+            class="text-white-50 text-decoration-none hover-text-white hover-scale transition-colors fs-6 d-none d-lg-block"
+            >Support</a
+          >
+          <a
+            href="#"
+            class="text-white-50 text-decoration-none hover-text-white hover-scale transition-colors fs-6 d-none d-lg-block"
+            >Download</a
+          >
+          <div
+            class="vr bg-white opacity-25 mx-3 d-none d-md-block"
+            style="height: 24px; width: 1px"
+          ></div>
+          <button
+            class="btn btn-dark rounded-pill fw-bold px-3 d-none d-md-flex align-items-center gap-2 install-btn text-white hover-scale bg-transparent border-0"
+            style="font-size: 0.9rem"
+          >
+            <i class="bi bi-arrow-down-circle"></i> Install App
+          </button>
+          <button
+            class="btn text-white-50 fw-bold px-3 hover-text-white hover-scale border-0 fs-6 bg-transparent transition-colors"
+          >
+            Sign up
+          </button>
+          <button
+            class="btn rounded-pill fw-bold px-4 text-dark hover-scale fs-6 border-0 bg-white"
+            style="padding-top: 12px; padding-bottom: 12px"
+          >
+            Log in
+          </button>
+        </div>
+      </header>
+
+      <!-- Main wrapper -->
+      <div class="d-flex flex-grow-1 overflow-hidden gap-2 pb-0">
+        <!-- Sidebar -->
+        <nav
+          class="sidebar bg-darker rounded d-none d-md-flex flex-column h-100 position-relative"
+          style="width: 320px; min-width: 320px"
+        >
+          <div
+            class="d-flex justify-content-between align-items-center p-3 pt-4 px-4 sticky-top"
+          >
+            <button
+              class="btn text-white-50 hover-text-white d-flex align-items-center gap-3 fw-bold p-0 border-0 bg-transparent transition-colors shadow-none"
+              style="font-size: 1rem"
+            >
+              <i class="bi bi-collection fs-4"></i>
+              Your Library
+            </button>
+            <button
+              class="btn text-white-50 hover-text-white p-0 border-0 bg-transparent hover-scale shadow-none hover-bg-light-dark rounded-circle d-flex align-items-center justify-content-center transition-colors"
+              style="width: 32px; height: 32px"
+            >
+              <i class="bi bi-plus-lg fs-5"></i>
+            </button>
+          </div>
+
+          <div class="library flex-grow-1 overflow-auto px-2 pb-4">
+            <div class="bg-dark rounded p-3 mb-4 mx-2 mt-2">
+              <h6 class="fw-bold mb-2">Create your first playlist</h6>
+              <p class="small mb-4" style="font-weight: 500">
+                It's easy, we'll help you
+              </p>
+              <button
+                class="btn bg-white rounded-pill fw-bold px-3 py-1 btn-sm text-dark hover-scale border-0"
+                style="
+                  font-size: 0.85rem;
+                  padding-top: 6px;
+                  padding-bottom: 6px;
+                "
+              >
+                Create playlist
+              </button>
+            </div>
+
+            <div class="bg-dark rounded p-3 mb-4 mx-2">
+              <h6 class="fw-bold mb-2">Let's find some podcasts to follow</h6>
+              <p class="small mb-4" style="font-weight: 500">
+                We'll keep you updated on new episodes
+              </p>
+              <button
+                class="btn bg-white rounded-pill fw-bold px-3 py-1 btn-sm text-dark hover-scale border-0"
+                style="
+                  font-size: 0.85rem;
+                  padding-top: 6px;
+                  padding-bottom: 6px;
+                "
+              >
+                Browse podcasts
+              </button>
+            </div>
+
+            <div class="mt-5 px-3 mb-4 d-flex flex-column gap-4">
+              <div
+                class="d-flex flex-wrap gap-3 text-white-50"
+                style="font-size: 0.7rem; row-gap: 8px"
+              >
+                <a
+                  href="#"
+                  class="text-white-50 text-decoration-none hover-text-white"
+                  >Legal</a
+                >
+                <a
+                  href="#"
+                  class="text-white-50 text-decoration-none hover-text-white"
+                  >Safety & Privacy Center</a
+                >
+                <a
+                  href="#"
+                  class="text-white-50 text-decoration-none hover-text-white"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="text-white-50 text-decoration-none hover-text-white"
+                  >Cookies</a
+                >
+                <a
+                  href="#"
+                  class="text-white-50 text-decoration-none hover-text-white"
+                  >About Ads</a
+                >
+                <a
+                  href="#"
+                  class="text-white-50 text-decoration-none hover-text-white"
+                  >Accessibility</a
+                >
+              </div>
+              <a
+                href="#"
+                class="text-white-50 text-decoration-none hover-text-white"
+                style="font-size: 0.7rem"
+                >Cookies</a
+              >
+              <button
+                class="btn text-white rounded-pill fw-bold btn-sm d-flex align-items-center gap-1 mt-2 hover-scale border border-secondary hover-border-white transition-all bg-transparent"
+                style="
+                  width: auto;
+                  align-self: flex-start;
+                  padding: 4px 12px;
+                  font-size: 0.85rem;
+                "
+              >
+                <i class="bi bi-globe"></i> English
+              </button>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main
+          class="main-content flex-grow-1 overflow-auto bg-darker rounded position-relative h-100"
+        >
+          <div
+            class="bg-gradient-custom position-absolute top-0 w-100 h-100"
+            style="max-height: 250px; z-index: 0; pointer-events: none"
+          ></div>
+
+          <div class="p-4 position-relative z-2">
+            <!-- Trending songs Section -->
+            <div
+              class="d-flex justify-content-between align-items-end mb-3 mt-2"
+            >
+              <h2 class="fw-bold fs-4 hover-underline cursor-pointer mb-0">
+                Trending songs
+              </h2>
+              <span
+                class="text-white-50 fw-bold hover-underline cursor-pointer transition-colors"
+                style="font-size: 0.85rem"
+                >Show all</span
+              >
+            </div>
+
+            <div class="grid-layout mb-5">
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Trending/ni wewe.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Ni Wewe"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Ni Wewe
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Bridget Blue
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Trending/lavender.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Lavender"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Lavender
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Watendawili, Hornsphere
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Trending/panic.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Panic"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Panic
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Vybz Kartel, Shenseea
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Trending/kale ka uoga.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Kale Ka uoga"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Kale Ka uoga
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Mejja, Scar Mkadinali
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Trending/watch me now.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Watch Me Now! (with NLE Choppa)"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Watch Me Now! (with NLE Choppa)
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Ndotz, NLE Choppa
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Trending/itoka ilinitoka.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Itoka llitoka"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Itoka llitoka
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Virusi Mbaya
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Popular artists -->
+            <div
+              class="d-flex justify-content-between align-items-end mb-3 mt-4"
+            >
+              <h2 class="fw-bold fs-4 hover-underline cursor-pointer mb-0">
+                Popular artists
+              </h2>
+              <span
+                class="text-white-50 fw-bold hover-underline cursor-pointer transition-colors"
+                style="font-size: 0.85rem"
+                >Show all</span
+              >
+            </div>
+
+            <div class="grid-layout mb-5">
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded-circle"
+                  >
+                    <img
+                      src="assets/images/Popular artists/drake.jpg"
+                      class="card-img-top rounded-circle shadow-lg object-fit-cover w-100 h-100"
+                      alt="Drake"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn mb-1 me-1"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0 text-left">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Drake
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Artist
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded-circle"
+                  >
+                    <img
+                      src="assets/images/Popular artists/bien.jpg"
+                      class="card-img-top rounded-circle shadow-lg object-fit-cover w-100 h-100"
+                      alt="Sauti Sol"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn mb-1 me-1"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0 text-left">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Bien
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Artist
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded-circle"
+                  >
+                    <img
+                      src="assets/images/Popular artists/breezy.jpg"
+                      class="card-img-top rounded-circle shadow-lg object-fit-cover w-100 h-100"
+                      alt="Chris Brown"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn mb-1 me-1"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0 text-left">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Chris Brown
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Artist
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded-circle"
+                  >
+                    <img
+                      src="assets/images/Popular artists/kendrick lamar.jpg"
+                      class="card-img-top rounded-circle shadow-lg object-fit-cover w-100 h-100"
+                      alt="Kendrick Lamar"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn mb-1 me-1"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0 text-left">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Kendrick Lamar
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Artist
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded-circle"
+                  >
+                    <img
+                      src="assets/images/Popular artists/sauti sol.jpg"
+                      class="card-img-top rounded-circle shadow-lg object-fit-cover w-100 h-100"
+                      alt="Burna Boy"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn mb-1 me-1"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0 text-left">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Sauti Sol
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Artist
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded-circle"
+                  >
+                    <img
+                      src="assets/images/Popular artists/bensoul.jpg"
+                      class="card-img-top rounded-circle shadow-lg object-fit-cover w-100 h-100"
+                      alt="Playboi Carti"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn mb-1 me-1"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0 text-left">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Bensoul
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Artist
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Popular albums and singles -->
+            <div
+              class="d-flex justify-content-between align-items-end mb-3 mt-4"
+            >
+              <h2 class="fw-bold fs-4 hover-underline cursor-pointer mb-0">
+                Popular albums and singles
+              </h2>
+              <span
+                class="text-white-50 fw-bold hover-underline cursor-pointer transition-colors"
+                style="font-size: 0.85rem"
+                >Show all</span
+              >
+            </div>
+
+            <div class="grid-layout mb-5">
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular albums/midnight train.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Midnight Train"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Midnight Train
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Sauti Sol
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular albums/alusa why are you topless.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Alusa Why Are You Topless?"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Alusa Why Are You Topless?
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Bien
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular albums/music.png"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="MUSIC"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      MUSIC
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Playboi Carti
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular albums/$ome $exy $ongs 4 U.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="$ome $exy $ongs 4 U"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      $ome $exy $ongs 4 U
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      PARTYNEXTDOOR, Drake
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular albums/unintentional.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Unintentional"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Unintentional
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Njerae
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular albums/GNX.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="GNX"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      GNX
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Kendrick Lamar
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Popular radio -->
+            <div
+              class="d-flex justify-content-between align-items-end mb-3 mt-4"
+            >
+              <h2 class="fw-bold fs-4 hover-underline cursor-pointer mb-0">
+                Popular radio
+              </h2>
+              <span
+                class="text-white-50 fw-bold hover-underline cursor-pointer transition-colors"
+                style="font-size: 0.85rem"
+                >Show all</span
+              >
+            </div>
+
+            <div class="grid-layout mb-5">
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular radio/pr1.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Bien"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Bien
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      With Bridget Blue, Okello Max, Charisma...
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular radio/pr2.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Toxic Lyrikali"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Toxic Lyrikali
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      With OnlyMoh, Thirtyfourbrick...
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular radio/pr3.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Nyashinski"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Nyashinski
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      With H_art the Band, Bensoul, Savara...
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular radio/pr4.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Njerae"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Njerae
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      With Mutoriah, Nikita Kering...
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular radio/pr5.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Vybz Kartel"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Vybz Kartel
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      With Gaza Slim, Notnice, Mr. Vegas...
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded"
+                  >
+                    <img
+                      src="assets/images/Popular radio/pr6.jpg"
+                      class="card-img-top rounded shadow object-fit-cover w-100 h-100"
+                      alt="Sauti Sol"
+                    />
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <h5 class="card-title fw-bold text-truncate fs-6 mb-1">
+                      Sauti Sol
+                    </h5>
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      With Savara, Charisma, Okello Max...
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Featured Charts-->
+            <div
+              class="d-flex justify-content-between align-items-end mb-3 mt-4"
+            >
+              <h2 class="fw-bold fs-4 hover-underline cursor-pointer mb-0">
+                Featured Charts
+              </h2>
+              <span
+                class="text-white-50 fw-bold hover-underline cursor-pointer transition-colors"
+                style="font-size: 0.85rem"
+                >Show all</span
+              >
+            </div>
+            <div class="grid-layout mb-5">
+              <!--Top songs global-->
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded overflow-hidden d-flex flex-column p-3"
+                    style="
+                      background: linear-gradient(135deg, #7c3aed, #4c1d95);
+                    "
+                  >
+                    <div class="d-flex justify-content-between mb-auto">
+                      <i class="bi bi-spotify text-white"></i>
+                    </div>
+                    <h3
+                      class="fw-bold mb-0 lh-1"
+                      style="font-size: 2.5rem; letter-spacing: -1px"
+                    >
+                      Top<br />Songs
+                    </h3>
+                    <span class="fs-4 fw-bold mt-1 text-white-50">Global</span>
+
+                    <div
+                      class="position-absolute bottom-0 start-0 w-100 p-2 d-flex align-items-center gap-2 mt-auto text-white bg-black bg-opacity-25"
+                      style="border-top-right-radius: 8px"
+                    >
+                      <i class="bi bi-arrow-up-right-square-fill"></i>
+                      <span class="fw-bold small" style="font-size: 0.7rem"
+                        >Weekly Music Charts</span
+                      >
+                    </div>
+
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn z-3 mb-4"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Your weekly update of the most played tracks right now -
+                      Global.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Top songs USA -->
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded overflow-hidden d-flex flex-column p-3"
+                    style="
+                      background: linear-gradient(135deg, #ef4444, #991b1b);
+                    "
+                  >
+                    <div class="d-flex justify-content-between mb-auto">
+                      <i class="bi bi-spotify text-white"></i>
+                    </div>
+                    <h3
+                      class="fw-bold mb-0 lh-1"
+                      style="font-size: 2.5rem; letter-spacing: -1px"
+                    >
+                      Top<br />Songs
+                    </h3>
+                    <span class="fs-4 fw-bold mt-1 text-white-50">USA</span>
+
+                    <div
+                      class="position-absolute bottom-0 start-0 w-100 p-2 d-flex align-items-center gap-2 mt-auto text-white bg-black bg-opacity-25"
+                      style="border-top-right-radius: 8px"
+                    >
+                      <i class="bi bi-arrow-up-right-square-fill"></i>
+                      <span class="fw-bold small" style="font-size: 0.7rem"
+                        >Weekly Music Charts</span
+                      >
+                    </div>
+
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn z-3 mb-4"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Your weekly update of the most played tracks right now -
+                      USA.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Top 50 global -->
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded overflow-hidden d-flex flex-column align-items-center justify-content-center p-3"
+                    style="
+                      background: linear-gradient(
+                        180deg,
+                        #0f766e 0%,
+                        #1e3a8a 100%
+                      );
+                    "
+                  >
+                    <i
+                      class="bi bi-spotify text-white position-absolute top-0 start-0 m-3"
+                    ></i>
+                    <h3
+                      class="fw-bold mb-0 text-white"
+                      style="font-size: 2.2rem; letter-spacing: -1px"
+                    >
+                      Top 50
+                    </h3>
+                    <div
+                      class="w-25 border-bottom border-2 border-white my-3 opacity-50"
+                    ></div>
+                    <span
+                      class="text-uppercase fw-bold text-white-50"
+                      style="font-size: 0.65rem; letter-spacing: 2px"
+                      >Global</span
+                    >
+
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn z-3"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Your daily update of the most played tracks right now -
+                      Global.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Top 50 USA -->
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded overflow-hidden d-flex flex-column align-items-center justify-content-center p-3"
+                    style="
+                      background: linear-gradient(
+                        180deg,
+                        #db2777 0%,
+                        #dc2626 100%
+                      );
+                    "
+                  >
+                    <i
+                      class="bi bi-spotify text-white position-absolute top-0 start-0 m-3"
+                    ></i>
+                    <h3
+                      class="fw-bold mb-0 text-white"
+                      style="font-size: 2.2rem; letter-spacing: -1px"
+                    >
+                      Top 50
+                    </h3>
+                    <div
+                      class="w-25 border-bottom border-2 border-white my-3 opacity-50"
+                    ></div>
+                    <span
+                      class="text-uppercase fw-bold text-white-50"
+                      style="font-size: 0.65rem; letter-spacing: 2px"
+                      >USA</span
+                    >
+
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn z-3"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Your daily update of the most played tracks right now -
+                      USA.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Viral 50 global -->
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded overflow-hidden d-flex flex-column align-items-center justify-content-center p-3 bg-dark"
+                  >
+                    <div
+                      class="position-absolute top-0 start-0 w-100 h-100 bg-opacity-75"
+                      style="
+                        background-image: url(&quot;https://assets/images.unsplash.com/photo-1540039155732-680c74b24dd5?w=300&h=300&fit=crop&quot;);
+                        background-position: center;
+                        mix-blend-mode: luminosity;
+                        opacity: 0.3;
+                      "
+                    ></div>
+                    <div
+                      class="position-absolute top-0 start-0 w-100 h-50"
+                      style="
+                        background: linear-gradient(
+                          180deg,
+                          #10b981 0%,
+                          transparent 100%
+                        );
+                      "
+                    ></div>
+                    <div
+                      class="position-absolute bottom-0 start-0 w-100 h-50"
+                      style="
+                        background: linear-gradient(
+                          0deg,
+                          #312e81 0%,
+                          transparent 100%
+                        );
+                      "
+                    ></div>
+
+                    <i
+                      class="bi bi-spotify text-white position-absolute top-0 start-0 m-3 z-2"
+                    ></i>
+                    <h3
+                      class="fw-bold mb-0 text-white z-2 position-relative"
+                      style="
+                        font-size: 2.2rem;
+                        letter-spacing: -1px;
+                        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+                      "
+                    >
+                      Viral 50
+                    </h3>
+                    <div
+                      class="w-100 text-center z-2 position-absolute"
+                      style="bottom: 1.5rem"
+                    >
+                      <span
+                        class="text-uppercase fw-bold text-white-50"
+                        style="font-size: 0.65rem; letter-spacing: 2px"
+                        >Global</span
+                      >
+                    </div>
+
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn z-3"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Your daily update of the most viral tracks right now -
+                      Global.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Viral 50 USA -->
+              <div class="card-wrapper transition-all">
+                <div
+                  class="card bg-transparent text-white p-3 h-100 border-0 hover-bg-dark rounded-3 group position-relative cursor-pointer transition-colors"
+                >
+                  <div
+                    class="position-relative mb-3 aspect-square shadow rounded overflow-hidden d-flex flex-column align-items-center justify-content-center p-3 bg-dark"
+                  >
+                    <div
+                      class="position-absolute top-0 start-0 w-100 h-100 bg-opacity-75"
+                      style="
+                        background-image: url(&quot;https://assets/images.unsplash.com/photo-1540039155732-680c74b24dd5?w=300&h=300&fit=crop&quot;);
+                        background-position: center;
+                        mix-blend-mode: luminosity;
+                        opacity: 0.3;
+                      "
+                    ></div>
+                    <div
+                      class="position-absolute top-0 start-0 w-100 h-50"
+                      style="
+                        background: linear-gradient(
+                          180deg,
+                          #ef4444 0%,
+                          transparent 100%
+                        );
+                      "
+                    ></div>
+                    <div
+                      class="position-absolute bottom-0 start-0 w-100 h-50"
+                      style="
+                        background: linear-gradient(
+                          0deg,
+                          #1e3a8a 0%,
+                          transparent 100%
+                        );
+                      "
+                    ></div>
+
+                    <i
+                      class="bi bi-spotify text-white position-absolute top-0 start-0 m-3 z-2"
+                    ></i>
+                    <h3
+                      class="fw-bold mb-0 text-white z-2 position-relative"
+                      style="
+                        font-size: 2.2rem;
+                        letter-spacing: -1px;
+                        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+                      "
+                    >
+                      Viral 50
+                    </h3>
+                    <div
+                      class="w-100 text-center z-2 position-absolute"
+                      style="bottom: 1.5rem"
+                    >
+                      <span
+                        class="text-uppercase fw-bold text-white-50"
+                        style="font-size: 0.65rem; letter-spacing: 2px"
+                        >USA</span
+                      >
+                    </div>
+
+                    <button
+                      class="btn btn-success rounded-circle position-absolute bottom-0 end-0 m-2 opacity-0 group-hover-opacity-100 transition-all shadow-lg play-btn-card translate-y-2 hover-scale hover-scale-btn z-3"
+                    >
+                      <i class="bi bi-play-fill fs-3 text-black ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="card-body p-0">
+                    <p
+                      class="card-text text-white-50 small text-truncate-2"
+                      style="font-size: 0.875rem"
+                    >
+                      Your daily update of the most viral tracks right now -
+                      USA.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="mt-5 pt-5 pb-5">
+              <div class="row g-4 text-white-50">
+                <div class="col-12 col-md-3">
+                  <h6 class="text-white fw-bold mb-3 fs-6">Company</h6>
+                  <ul
+                    class="list-unstyled d-flex flex-column gap-2 mb-0 fw-semibold"
+                    style="font-size: 0.95rem"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >About</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Jobs</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >For the Record</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-3">
+                  <h6 class="text-white fw-bold mb-3 fs-6">Communities</h6>
+                  <ul
+                    class="list-unstyled d-flex flex-column gap-2 mb-0 fw-semibold"
+                    style="font-size: 0.95rem"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >For Artists</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Developers</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Advertising</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Investors</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Vendors</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-2">
+                  <h6 class="text-white fw-bold mb-3 fs-6">Useful links</h6>
+                  <ul
+                    class="list-unstyled d-flex flex-column gap-2 mb-0 fw-semibold"
+                    style="font-size: 0.95rem"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Support</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Free Mobile App</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Popular by Country</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Import your music</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-2">
+                  <h6 class="text-white fw-bold mb-3 fs-6">Spotify Plans</h6>
+                  <ul
+                    class="list-unstyled d-flex flex-column gap-2 mb-0 fw-semibold"
+                    style="font-size: 0.95rem"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Premium Individual</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Premium Duo</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Premium Family</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Premium Student</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-white-50 text-decoration-none hover-text-white transition-colors"
+                        >Spotify Free</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="col-12 col-md-2 d-flex gap-3 align-items-start justify-content-md-end"
+                >
+                  <a
+                    href="#"
+                    class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center bg-dark hover-bg-light-dark transition-colors p-2 shadow-none border-0 group"
+                    style="width: 40px; height: 40px"
+                  >
+                    <i
+                      class="bi bi-instagram fs-5 text-white group-hover-text-white"
+                    ></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center bg-dark hover-bg-light-dark transition-colors p-2 shadow-none border-0 group"
+                    style="width: 40px; height: 40px"
+                  >
+                    <i
+                      class="bi bi-twitter fs-5 text-white group-hover-text-white"
+                    ></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center bg-dark hover-bg-light-dark transition-colors p-2 shadow-none border-0 group"
+                    style="width: 40px; height: 40px"
+                  >
+                    <i
+                      class="bi bi-facebook fs-5 text-white group-hover-text-white"
+                    ></i>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="mt-5 pt-4 border-top border-secondary border-opacity-25 d-flex flex-column flex-md-row text-white-50 gap-3 fw-semibold pb-4"
+              >
+                <span>
+                  &copy; 2026 Spotify AB clone | Designed by Gutheras</span
+                >
+              </div>
+            </footer>
+          </div>
+        </main>
+      </div>
+
+      <footer
+        class="preview-banner p-2 px-3 d-flex justify-content-between align-items-center z-3 cursor-pointer"
+        style="height: auto"
+      >
+        <div class="d-flex flex-column text-white">
+          <span
+            class="fw-semibold"
+            style="font-size: 0.8rem; letter-spacing: 1px"
+            >Preview of Spotify</span
+          >
+          <span class="fw-semibold fs-6"
+            >Sign up to get unlimited songs and podcasts with occasional ads. No
+            credit card needed.</span
+          >
+        </div>
+        <button
+          class="btn bg-white rounded-pill fw-bold text-dark px-4 py-3 hover-scale border-0"
+          style="padding-left: 2rem !important; padding-right: 2rem !important"
+        >
+          Sign up free
+        </button>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
